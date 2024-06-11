@@ -1,7 +1,7 @@
 workflows:
   android-workflow:
     name: Android Workflow
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     max_build_duration: 120
     environment:
       groups:
@@ -9,7 +9,7 @@ workflows:
       vars:
         FIREBASE_PROJECT: "YOUR_FIREBASE_PROJECT_NAME" # <-- Put your Firebase Project Name here
       flutter: stable
-      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      xcode: latest # <-- set to specific version e.g. 11.0, 15.0 to avoid unexpected updates.
       cocoapods: default
     scripts:
       - name: Set up debug.keystore
@@ -69,9 +69,9 @@ workflows:
           failure: false # To not receive a notification when a build fails
   ios-workflow:
       name: iOS Workflow
-      instance_type: mac_mini_m1
+      instance_type: mac_pro
       environment:
-        xcode: 13.4.1
+        xcode: 11.0
         groups:
           - ios_credentials
           - gcloud_credentials
