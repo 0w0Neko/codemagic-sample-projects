@@ -24,7 +24,7 @@ workflows:
           XCODE_PROJECT: "swiftqube.xcodeproj"
           XCODE_SCHEME: "swiftqube"
           BUNDLE_ID: "io.codemagic.swiftqube"
-        xcode: 12.5
+        xcode: 11.0
         cocoapods: default
       triggering:
         events:
@@ -46,7 +46,7 @@ workflows:
           -project "$XCODE_PROJECT" \
           -scheme "$XCODE_SCHEME" \
           -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5' \
+          -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=11.0' \
           -derivedDataPath Build/ \
           -enableCodeCoverage YES \
           clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
