@@ -1,7 +1,7 @@
 workflows:
   ios-workflow:
     name: ios_workflow
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     integrations:
       app_store_connect: codemagic
     cache:
@@ -17,7 +17,7 @@ workflows:
         XCODE_WORKSPACE: "Sonar.xcodeproj"  # PUT YOUR WORKSPACE NAME HERE
         XCODE_SCHEME: "Sonar" # PUT THE NAME OF YOUR SCHEME HERE
         SONARQUBE_URL: "https://sonarcloud.io" # PUT YOUR SONARQUBE URL HERE
-      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      xcode: latest # <-- set to specific version e.g. 11.0, 15.0 to avoid unexpected updates.
       cocoapods: default
     triggering:
       events:
@@ -34,7 +34,7 @@ workflows:
             -project "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.4' \
+            -destination 'platform=iOS Simulator,name=iPhone 12,OS=10.5.7' \
              clean \
              build \
              test \
@@ -56,7 +56,7 @@ workflows:
             -project "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=15.4' \
+            -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=10.5.7' \
             -derivedDataPath Build/ \
             -enableCodeCoverage YES \
             clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
