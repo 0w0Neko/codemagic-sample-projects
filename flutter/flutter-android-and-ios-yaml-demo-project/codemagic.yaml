@@ -1,7 +1,7 @@
 workflows:
   android-workflow:
     name: Android Workflow
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     max_build_duration: 120
     environment:
       android_signing:
@@ -50,7 +50,7 @@ workflows:
         submit_as_draft: true
   ios-workflow:
     name: iOS Workflow
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     max_build_duration: 120
     integrations:
       app_store_connect: codemagic
@@ -61,7 +61,7 @@ workflows:
       vars:
         APP_ID: 1111111111 # <-- Put your APP ID here
       flutter: stable
-      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      xcode: latest # <-- set to specific version e.g. 11.0, 15.0 to avoid unexpected updates.
       cocoapods: default
     scripts:
       - name: Set up code signing settings on Xcode project
