@@ -67,7 +67,7 @@ workflows:
   react-native-ios:
     name: React Native iOS
     max_build_duration: 120
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     integrations:
       app_store_connect: codemagic
     environment:
@@ -80,7 +80,7 @@ workflows:
           BUNDLE_ID: "io.codemagic.expoapp" # <-- Put your Bundle Id here e.g com.domain.myapp
           APP_ID: 1616629701 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
       node: 16.14.2
-      xcode: 13.1
+      xcode: 11.0
       cocoapods: default
     triggering:
         events:
