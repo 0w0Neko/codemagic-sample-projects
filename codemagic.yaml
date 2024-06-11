@@ -1,7 +1,7 @@
 workflows:
   ios-automatic-code-signing:
     name: iOS automatic code signing
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     working_directory: ios/ios-automatic-code-signing-demo-project
     environment:
       groups:
@@ -11,7 +11,7 @@ workflows:
         XCODE_SCHEME: "swiftly"
         BUNDLE_ID: "io.codemagic.cmswiftly"
         APP_STORE_APP_ID: 1570610860
-      xcode: 14.3
+      xcode: 11.0
       cocoapods: default
     triggering:
       events:
@@ -67,7 +67,7 @@ workflows:
           failure: false # To not receive a notification when a build fails
   ios-manual-code-signing:
     name: iOS manual code signing
-    instance_type: mac_mini_m1
+    instance_type: mac_pro
     working_directory: ios/ios-manual-code-signing-demo-project
     environment:
       groups:
@@ -77,7 +77,7 @@ workflows:
         XCODE_WORKSPACE: "swiftly.xcworkspace" # <-- Put the name of your workspace here.
         XCODE_SCHEME: "swiftly" # <-- Put the name of your scheme here.
         APP_STORE_APP_ID: 1571469558
-      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      xcode: latest # <-- set to specific version e.g. 11.0, 15.0 to avoid unexpected updates.
       cocoapods: default
     triggering:
       events:
@@ -139,7 +139,7 @@ workflows:
     name: iOS code signing identities
     integrations:
       app_store_connect: NC_API_KEY
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     working_directory: ios/ios-code-signing-identities-demo-project
     environment:
       ios_signing:
@@ -153,7 +153,7 @@ workflows:
         XCODE_WORKSPACE: "swiftly.xcworkspace" # <-- Put the name of your workspace here.
         XCODE_SCHEME: "swiftly" # <-- Put the name of your scheme here.
         APP_STORE_APP_ID: 1570610860
-      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      xcode: latest # <-- set to specific version e.g. 11.0, 15.0 to avoid unexpected updates.
       cocoapods: default
     triggering:
       events:
@@ -198,7 +198,7 @@ workflows:
         auth: integration 
   ios-magic-actions:
     name: ios-magic-actions
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     working_directory: ios/ios-magic-actions-demo-project
     environment:
       groups:
@@ -208,7 +208,7 @@ workflows:
         XCODE_SCHEME: "swiftly"
         BUNDLE_ID: "io.codemagic.cmswiftly"
         APP_STORE_APP_ID: 1570610860
-      xcode: 14.3
+      xcode: 11.0
       cocoapods: default
     triggering:
       events:
@@ -247,7 +247,7 @@ workflows:
         submit_to_testflight: false # Boolean use to indicate if you want to submit to TestFlight review so external testers can test your app
   ios-fastlane:
     name: iOS Fastlane
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     working_directory: integrations/fastlane-integration-demo-project
     environment:
       groups:
@@ -261,7 +261,7 @@ workflows:
       - bundle exec fastlane beta
   flutter-yaml-ios:
     name: Flutter yaml iOS
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     working_directory: flutter/flutter-android-and-ios-yaml-demo-project
     max_build_duration: 120
     environment:
@@ -273,7 +273,7 @@ workflows:
         BUNDLE_ID: "io.codemagic.cmflutteryaml"
         APP_STORE_APP_ID: 1571561263
       flutter: stable
-      xcode: 14.3
+      xcode: 11.0
       cocoapods: default
     scripts:
       - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
@@ -333,7 +333,7 @@ workflows:
         submit_to_testflight: false # Boolean use to indicate if you want to submit to TestFlight review so external testers can test your app
   flutter-flavors-ios-dev:
     name: iOS Flutter Flavors Dev
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     max_build_duration: 120
     working_directory: flutter/flutter-flavors-demo-project
     environment:
@@ -349,7 +349,7 @@ workflows:
         BUNDLE_ID: io.codemagic.flutterflavors.dev
         ENTRY_POINT: lib/main_dev.dart
       flutter: stable
-      xcode: 14.3
+      xcode: 11.0
       cocoapods: default
     triggering:
       events:
@@ -404,7 +404,7 @@ workflows:
         issuer_id: $APP_STORE_CONNECT_ISSUER_ID # Alphanumeric value that identifies who created the API key, can also reference environment variable such as $APP_STORE_CONNECT_ISSUER_ID
   flutter-flavors-ios-prod:
     name: iOS Flutter Flavors Prod
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     max_build_duration: 120
     working_directory: flutter/flutter-flavors-demo-project
     environment:
@@ -420,7 +420,7 @@ workflows:
         BUNDLE_ID: io.codemagic.flutterflavors.prod
         ENTRY_POINT: lib/main_prod.dart
       flutter: stable
-      xcode: 14.3
+      xcode: 11.0
       cocoapods: default
     triggering:
       events:
@@ -476,7 +476,7 @@ workflows:
   react-native-ios:
     name: React Native iOS
     max_build_duration: 120
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
     working_directory: react-native/react-native-demo-project
     environment:
       groups:
@@ -488,7 +488,7 @@ workflows:
         BUNDLE_ID: "io.codemagic.cmreactnative"
         APP_STORE_APP_ID: 1571903173
       node: 16.11.1
-      xcode: 14.3
+      xcode: 11.0
       cocoapods: default
     triggering:
       events:
