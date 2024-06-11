@@ -209,11 +209,12 @@
 				};
 			};
 			buildConfigurationList = 0A7E7EC8272EA8760083E7DE /* Build configuration list for PBXProject "macOS UITesting" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				zh_tw,
+                                en,
 				Base,
 			);
 			mainGroup = 0A7E7EC4272EA8760083E7DE;
