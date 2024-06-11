@@ -1,14 +1,14 @@
 workflows:
     ios-swiftly:
       name: ios_swiftly
-      instance_type: mac_mini_m1
+      instance_type: mac_pro
       environment:
         vars:
           XCODE_WORKSPACE: "swiftly.xcworkspace"
           XCODE_SCHEME: "swiftly"
           BUNDLE_ID: "io.codemagic.cmswiftly"
           APP_STORE_APPLE_ID: 12345678 # <-- Put your Apple App ID here. This can be found in App Store Connect > Your App > General > App Information > Apple ID. 
-        xcode: 14.2
+        xcode: 11.0
         cocoapods: default
         ios_signing:
           distribution_type: app_store
